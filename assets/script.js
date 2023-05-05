@@ -2,24 +2,20 @@ const user = document.getElementById('user')
 const searchBtn = document.getElementById('button')
 const displayField = document.getElementById('display')
 
-const base_url = 'https://api.github.com/users/'
+const baseUrl = 'https://api.github.com/users/'
 
 async function searchUser () {
   const userName = user.value
   if (userName === '') {
-   return  displayField.innerHTML = `
-    <p>Please enter a profile name to search</p>
-    `
+    return noProfile()
   }
 
-  const data = await fetch(base_url + userName).then((res) => res.json())
+  const data = await fetch(baseUrl + userName).then((res) => res.json())
 
   console.log(':::', data)
 
-  if (data.message === 'Not Found'){
-    return displayField.innerHTML = `
-        <p>Sorry, user not found!</p>
-    `
+  if (data.message === 'Not Found') {
+    return noUser()
   }
 
   displayField.innerHTML = `
@@ -35,6 +31,18 @@ async function searchUser () {
   <h2>following<a href="https://github.com/${data.login}" target="_blank"> ${data.following}</a></h2>
 </div>
 `
+}
+
+const noUser = () => {
+  displayField.innerHTML = `
+    <p>Sorry, user not found!</p>
+`
+}
+
+const noProfile = () => {
+  displayField.innerHTML = `
+    <p>Please enter a profile name to search</p>
+    `
 }
 
 searchBtn.addEventListener('click', searchUser)
