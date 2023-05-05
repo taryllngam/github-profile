@@ -54,6 +54,7 @@ input:focus {
   background-color: #23235d;
   color: white;
   box-shadow: #171755 -20px 20px 20px 20px;
+  font-size: 20px;
 }
 
 img {
