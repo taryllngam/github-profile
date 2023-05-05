@@ -6,11 +6,19 @@ const base_url =`https://api.github.com/users/`;
 
 async function searchUser() {
     let userName = user.value
-    const data = await fetch(base_url + userName).then((res) => res.json()).catch((err => 
-        displayField.innerHTML = `NO PROFILE FOUND`
-        ))
+    if(userName === ''){
+    alert ('Please enter a profile name to search')
+    }
+    
+    const data = await fetch(base_url + userName).then((res) => res.json())
 
-    console.log(data);
+
+    console.log(":::",data);
+
+    if (data.message === 'Not Found') return displayField.innerHTML = `
+        <p>Sorry, user not found!</p>
+    `
+    
     displayField.innerHTML = `
     <a href="https://github.com/${data.login}" target="_blank">
     <img src="${data.avatar_url}" alt="profile picture"/> 
@@ -24,7 +32,11 @@ async function searchUser() {
   <h2>following<a href="https://github.com/${data.login}" target="_blank"> ${data.following}</a></h2>
 </div>
 `
-}
+
+
+} 
+
+
 
 
 
