@@ -1,23 +1,23 @@
-const user = document.getElementById('user')
-const searchBtn = document.getElementById('button')
-const displayField = document.getElementById('display')
+const user = document.getElementById("user");
+const searchBtn = document.getElementById("button");
+const displayField = document.getElementById("display");
 
-const url = 'https://api.github.com/users/'
+const url = "https://api.github.com/users/";
 
-async function searchUser () {
-  const userName = user.value
-  if (userName === '') {
-    alert('Please enter a profile name to search')
+async function searchUser() {
+  const userName = user.value;
+  if (userName === "") {
+    alert("Please enter a profile name to search");
   }
 
-  const data = await fetch(url + userName).then((res) => res.json())
+  const data = await fetch(url + userName).then((res) => res.json());
 
-  console.log(':::', data)
+  console.log(":::", data);
 
-  if (data.message === 'Not Found') {
-     displayField.innerHTML = `
+  if (data.message === "Not Found") {
+    displayField.innerHTML = `
         <p>Sorry, user not found!</p>
-    `
+    `;
   }
 
   displayField.innerHTML = `
@@ -32,7 +32,7 @@ async function searchUser () {
   <h2>followers<a href="https://github.com/${data.login}" target="_blank"> ${data.followers}</a></h2>
   <h2>following<a href="https://github.com/${data.login}" target="_blank"> ${data.following}</a></h2>
 </div>
-`
+`;
 }
 
-searchBtn.addEventListener('click', searchUser)
+searchBtn.addEventListener("click", searchUser);
