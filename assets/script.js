@@ -2,7 +2,7 @@ const user = document.getElementById('user')
 const searchBtn = document.getElementById('button')
 const displayField = document.getElementById('display')
 
-const base_url = 'https://api.github.com/users/'
+const url = 'https://api.github.com/users/'
 
 async function searchUser () {
   const userName = user.value
@@ -10,12 +10,12 @@ async function searchUser () {
     alert('Please enter a profile name to search')
   }
 
-  const data = await fetch(base_url + userName).then((res) => res.json())
+  const data = await fetch(url + userName).then((res) => res.json())
 
   console.log(':::', data)
 
   if (data.message === 'Not Found') {
-    return displayField.innerHTML = `
+     displayField.innerHTML = `
         <p>Sorry, user not found!</p>
     `
   }
