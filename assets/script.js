@@ -1,25 +1,26 @@
-const user = document.getElementById('user');
+const user = document.getElementById('user')
 const searchBtn = document.getElementById('button')
 const displayField = document.getElementById('display')
 
-const base_url =`https://api.github.com/users/`;
+const base_url = 'https://api.github.com/users/'
 
-async function searchUser() {
-    let userName = user.value
-    if(userName === ''){
-    alert ('Please enter a profile name to search')
-    }
-    
-    const data = await fetch(base_url + userName).then((res) => res.json())
+async function searchUser () {
+  const userName = user.value
+  if (userName === '') {
+    alert('Please enter a profile name to search')
+  }
 
+  const data = await fetch(base_url + userName).then((res) => res.json())
 
-    console.log(":::",data);
+  console.log(':::', data)
 
-    if (data.message === 'Not Found') return displayField.innerHTML = `
+  if (data.message === 'Not Found') {
+    return displayField.innerHTML = `
         <p>Sorry, user not found!</p>
     `
-    
-    displayField.innerHTML = `
+  }
+
+  displayField.innerHTML = `
     <a href="https://github.com/${data.login}" target="_blank">
     <img src="${data.avatar_url}" alt="profile picture"/> 
   </a>
@@ -32,12 +33,6 @@ async function searchUser() {
   <h2>following<a href="https://github.com/${data.login}" target="_blank"> ${data.following}</a></h2>
 </div>
 `
+}
 
-
-} 
-
-
-
-
-
-searchBtn.addEventListener("click", searchUser)
+searchBtn.addEventListener('click', searchUser)
