@@ -1,10 +1,8 @@
 const user = document.getElementById('user')
-const searchBtn = document.getElementById('button')
 const displayField = document.getElementById('display')
-var myForm = document.getElementById("myForm");
+const myForm = document.getElementById('myForm')
 
 const baseUrl = 'https://api.github.com/users/'
-const userName = user.value
 
 async function searchUser () {
   const userName = user.value
@@ -40,8 +38,6 @@ async function searchUser () {
 `
 }
 
-
-
 const noUser = () => {
   displayField.innerHTML = `
     <p>Sorry, user not found!</p>
@@ -54,8 +50,7 @@ const noProfile = () => {
     `
 }
 
-
-myForm.addEventListener('submit',function(e){
+myForm.addEventListener('submit', function (e) {
   e.preventDefault()
   searchUser()
 })

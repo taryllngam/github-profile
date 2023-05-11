@@ -66,7 +66,6 @@ input:focus {
 
 img {
   width: 20%;
-  /* padding: 20px; */
   border: 5px solid #0a0a49;
   border-radius: 25%;
 }
@@ -110,9 +109,7 @@ img {
   color: white;
 }
 
-
-
-@media screen  and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   body {
     overflow: none;
   }
@@ -136,8 +133,8 @@ img {
     width: none;
     background-color: none;
     box-shadow: none;
-   padding: 20px 0 40px;
-   min-width: 250px;
+    padding: 20px 0 40px;
+    min-width: 250px;
   }
 
   #button {
@@ -177,29 +174,29 @@ img {
     font-size: 20px;
     text-decoration: none;
   }
-  
+
   .following {
     padding-left: 20px;
     line-height: 1cm;
   }
-  
+
   .follows a {
     color: white;
     font-size: 20px;
     text-decoration: none;
   }
-  
+
   .follows {
     display: flex;
     gap: 20px;
     padding-left: 20px;
   }
-  
+
   .follows h2 {
     color: #8c8c92;
     font-size: 17px;
   }
-  
+
   .gitlink {
     font-size: 20px;
     padding-left: 20px;
