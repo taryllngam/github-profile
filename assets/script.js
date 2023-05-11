@@ -1,6 +1,6 @@
 const user = document.getElementById('user')
 const displayField = document.getElementById('display')
-const myForm = document.getElementById('myForm')
+const myForm = document.getElementById('my-form')
 
 const baseUrl = 'https://api.github.com/users/'
 
