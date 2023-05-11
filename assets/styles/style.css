@@ -125,6 +125,7 @@ img {
     height: none;
     min-width: fit-content;
   }
+
   .components {
     display: flex;
     flex-direction: column;
@@ -170,37 +171,12 @@ img {
   }
 
   .following a {
-    color: white;
     font-size: 20px;
-    text-decoration: none;
-  }
-
-  .following {
-    padding-left: 20px;
-    line-height: 1cm;
-  }
-
-  .follows a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
   }
 
   .follows {
     display: flex;
     gap: 20px;
     padding-left: 20px;
-  }
-
-  .follows h2 {
-    color: #8c8c92;
-    font-size: 17px;
-  }
-
-  .gitlink {
-    font-size: 20px;
-    padding-left: 20px;
-    text-decoration: none;
-    line-height: 1cm;
   }
 }
