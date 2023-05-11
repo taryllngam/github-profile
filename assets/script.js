@@ -1,6 +1,7 @@
 const user = document.getElementById('user')
 const searchBtn = document.getElementById('button')
 const displayField = document.getElementById('display')
+var myForm = document.getElementById("myForm");
 
 const baseUrl = 'https://api.github.com/users/'
 const userName = user.value
@@ -54,8 +55,7 @@ const noProfile = () => {
 }
 
 
-
-
-searchBtn.addEventListener('click', searchUser)
-
-
+myForm.addEventListener('submit',function(e){
+  e.preventDefault()
+  searchUser()
+})
